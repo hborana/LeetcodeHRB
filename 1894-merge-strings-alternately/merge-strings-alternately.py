@@ -5,14 +5,22 @@ class Solution(object):
         :type word2: str
         :rtype: str
         """
-        merged = ""
-        min_Len = min(len(word1),len(word2))
+        merged = []
+        i, j = 0, 0
+        n, m = len(word1), len(word2)
 
-        for i in range(min_Len):
-            merged += word1[i] + word2[i]
+        # Alternate between characters of word1 and word2
+        while i < n and j < m:
+            merged.append(word1[i])
+            merged.append(word2[j])
+            i += 1
+            j += 1
 
-        merged += word1[min_Len:] + word2[min_Len:]
+        # Append remaining characters from the longer string
+        if i < n:
+            merged.append(word1[i:])
+        if j < m:
+            merged.append(word2[j:])
 
-        return merged 
-
-        
+        return ''.join(merged)
+            
