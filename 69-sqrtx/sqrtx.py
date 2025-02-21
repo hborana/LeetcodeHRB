@@ -8,9 +8,9 @@ class Solution:
             return x
 
         n = x
-
+        # Newton - Rapson Method for solving the problem 
         while x * x > n:
-            x = (x+n// x ) // 2 
+            x = (x + n // x ) // 2 
 
         
         return x 
