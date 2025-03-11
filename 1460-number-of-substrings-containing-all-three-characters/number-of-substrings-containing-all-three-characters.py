@@ -1,15 +1,15 @@
 class Solution:
     def numberOfSubstrings(self, s: str) -> int:
-        count = {'a': 0, 'b': 0, 'c': 0}  # Dictionary to count occurrences of 'a', 'b', and 'c'
+        count = {'a': 0, 'b': 0, 'c': 0}  
         left = 0
         result = 0
         
-        for right in range(len(s)):  # Expand right pointer
+        for right in range(len(s)): 
             count[s[right]] += 1
 
-            while all(count[ch] > 0 for ch in 'abc'):  # Check if window contains 'a', 'b', and 'c'
-                result += len(s) - right  # All substrings from 'left' to end are valid
-                count[s[left]] -= 1  # Shrink left pointer
+            while all(count[ch] > 0 for ch in 'abc'): 
+                result += len(s) - right  
+                count[s[left]] -= 1 
                 left += 1
 
         return result
